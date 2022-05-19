@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 public class Passenger {
 
@@ -7,15 +7,15 @@ public class Passenger {
     Ticket ticket;
     int id;
     private static int idCounter = 0;
+    
 
-    public Passenger(){
-        this.contact = new Contact("surya","9578095974","surya@gmail.com");
-        this.address = new Address("4th street","Los Angeles","California");
+    public Passenger(String name, String emailID, String contactNumber, String street, String city, String state){
+        this.contact = new Contact(name, emailID, contactNumber);
+        this.address = new Address(street, city, state);
         idCounter++;
         this.id = idCounter;
-
     }
-
+    
     public void register(Contact contact, Address address){
         this.contact = contact;
         this.address = address;

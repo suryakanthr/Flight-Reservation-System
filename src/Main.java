@@ -1,29 +1,77 @@
+import java.util.*;
+
 public class Main {
+
+    static Map<Integer, Passenger> userDetails = new HashMap<>();
     public static void main(String[] args){
+        try (Scanner sc = new Scanner(System.in)) {
+            
+            boolean loop = true;
+            
+            while(loop){
+                System.out.println("---------------------------------------------");
+                System.out.println(" Welcome to Flight Ticket reservation system");
+                System.out.println("---------------------------------------------");
+                System.out.println("1) User registration");
+                System.out.println("2) Book ticket");
+                System.out.println("3) Check ticket availability");
+                System.out.println("4) Check ticket status");
+                System.out.println("5) Ticket cancellation");
+                System.out.println("0) Exit");
+                System.out.println("Enter option to proceed further");
+                String input = sc.nextLine();
+                int option = Integer.parseInt(input);
+                switch(option){
+                    case 1:{
+                        
+                        System.out.println("Enter your name");
+                        String name = sc.nextLine();
 
-        //Checkpoint-2: Able to create classes, access their attributes, print their values
-        //Contact contact = new Contact("surya","9578095974","surya@gmail.com");
-        //System.out.println(contact.name);
-        //The above two lines throws error as Contact class has been nested inside Passenger class and made private
+                        System.out.println("Enter your emailID");
+                        String emailId = sc.nextLine();
 
-        //Checkpoint-3:
-        Flight flight = new Flight(4577,"Indigo",100,42);
-        //System.out.println(flight.flightNumber); //Unable to access private attribute of flight class
-        System.out.println("The flight number is: "+flight.getFlightNumber());// Able to access via getter & setter methods
+                        System.out.println("Enter your contact number");
+                        String contactNumber = sc.nextLine();
 
-        //Checkpoint-5:
-        Passenger passenger = new Passenger();
-        RegularTicket regularTicket = new RegularTicket("5846","Los Angeles","Delhi",flight,"6:00 PM","11:00 AM",
-                                                         "02/02/2022","03/02/2022",passenger,5,60000.00f,false);
-        TouristTicket touristTicket = new TouristTicket("3745","Los Angeles","Delhi",flight,"6:00 PM","11:00 AM",
-                "02/02/2022","03/02/2022",passenger,5,60000.00f,false);
+                        System.out.println("Enter your street details");
+                        String street = sc.nextLine();
 
-        printTicketDetails(regularTicket);  //Printing PNR of regular ticket
-        printTicketDetails(touristTicket);  //Printing PNR OF tourist ticket
+                        System.out.println("Enter your City");
+                        String city = sc.nextLine();
 
-    }
+                        System.out.println("Enter your State");
+                        String state = sc.nextLine();
 
-    public static void printTicketDetails(Ticket regularTicket){
-        regularTicket.printTicketDetails();
+                        Passenger p = new Passenger(name, emailId, contactNumber, street, city, state);
+                        if(userDetails.containsKey(p.id)){
+                            System.out.println("User is already registered");
+                        }
+                        else{
+                            userDetails.put(p.id,p);
+                            System.out.println("User registered successfully with ID: "+p.id);
+                        }
+                        
+                    } 
+                    break;
+
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 0:
+                        loop = false;
+                        break;
+                    default:
+                        System.out.println("Kindly enter a valid option");
+                }
+            }
+        }
+            
     }
 }
