@@ -1,5 +1,7 @@
 import java.util.*;
 
+//
+
 public class Main {
 
     static Map<Integer, Passenger> userDetails = new HashMap<>();
@@ -19,8 +21,9 @@ public class Main {
                 System.out.println("5) Ticket cancellation");
                 System.out.println("0) Exit");
                 System.out.println("Enter option to proceed further");
-                String input = sc.nextLine();
-                int option = Integer.parseInt(input);
+
+                int option = Integer.parseInt(sc.nextLine());
+
                 switch(option){
                     case 1:{
                         
@@ -55,7 +58,31 @@ public class Main {
                     break;
 
                     case 2:
-                        break;
+                        System.out.println("Please enter your registration ID");
+                        int checkID = Integer.parseInt(sc.nextLine());
+                        if(!userDetails.containsKey(checkID))
+                            System.out.println("Kindly register your details to book tickets");
+                        else{
+                            System.out.println("1) Book regular ticket");
+                            System.out.println("2) Book tourist ticket");
+                            int ticketType = Integer.parseInt(sc.nextLine());
+                            if(ticketType==1){
+                                System.out.println("Enter the following details");
+                                System.out.print("Departure location");
+                                String departureLocation = sc.nextLine();
+                                System.out.print("Destination location");
+                                String destinationLocation = sc.nextLine();
+                                System.out.print("Departure date in dd/mm/yyyy");
+                                String departureDate = sc.nextLine();
+                                System.out.print("Enter number of tickets");
+                                int noOfTickets = sc.nextInt();
+
+                                RegularTicket regTkt = new RegularTicket(departureLocation, destinationLocation, departureDate, noOfTickets, userDetails.get(checkID));
+                                System.out.println(noOfTickets + "regular tickets booked successfully");
+                            }
+                        }
+
+                    break;
                     case 3:
                         break;
                     case 4:

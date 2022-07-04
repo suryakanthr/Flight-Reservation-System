@@ -1,5 +1,5 @@
 abstract class  Ticket {
-    private String pnrNumber;
+    //private String pnrNumber;
     String departureLocation;
     String destinationLocation;
     Flight flight;
@@ -12,13 +12,13 @@ abstract class  Ticket {
     float price;
     boolean isCancelled = false;
 
-    public String getPnrNumber() {
-        return pnrNumber;
-    }
+    // public String getPnrNumber() {
+    //     return pnrNumber;
+    // }
 
-    public void setPnrNumber(String pnrNumber) {
-        this.pnrNumber = pnrNumber;
-    }
+    // public void setPnrNumber(String pnrNumber) {
+    //     this.pnrNumber = pnrNumber;
+    // }
 
     public Passenger getPassenger() {
         return passenger;
@@ -28,20 +28,19 @@ abstract class  Ticket {
         this.passenger = passenger;
     }
 
-    public Ticket(String pnrNumber, String departureLocation, String destinationLocation, Flight flight, String departureTime,
-                  String arrivalTime, String departureDate, String arrivalDate, Passenger passenger, int seatNumber, float price, boolean isCancelled){
-        this.pnrNumber = pnrNumber;
+    public Ticket(String departureLocation, String destinationLocation, String departureDate, int noOfTickets, Passenger passenger){
+        //this.pnrNumber = pnrNumber;
         this.departureLocation = departureLocation;
         this.destinationLocation = destinationLocation;
-        this.flight = new Flight(3461,"Indigo",80,35 );
-        this.departureTime = departureTime;
-        this. arrivalTime = arrivalTime;
+        this.flight = new Flight(noOfTickets);
+        //this.departureTime = departureTime;
+        //this. arrivalTime = arrivalTime;
         this.departureDate = departureDate;
-        this.arrivalDate = arrivalDate;
+        //this.arrivalDate = arrivalDate;
         this.passenger = passenger;
-        this.seatNumber = seatNumber;
-        this.price = price;
-        this.isCancelled = isCancelled;
+        //this.seatNumber = seatNumber;
+        //this.price = price;
+        this.isCancelled = false;
     }
 
     public void checkTicketStatus(){

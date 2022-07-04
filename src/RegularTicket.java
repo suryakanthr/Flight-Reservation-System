@@ -6,10 +6,10 @@ public class RegularTicket extends Ticket {
     String snacks;
     boolean isAvailed = false;
 
-    public RegularTicket(String pnrNumber, String departureLocation, String destinationLocation, Flight flight, String departureTime, String arrivalTime, String departureDate, String arrivalDate, Passenger passenger, int seatNumber, float price, boolean isCancelled) {
-        super(pnrNumber, departureLocation, destinationLocation, flight, departureTime, arrivalTime, departureDate, arrivalDate, passenger, seatNumber, price, isCancelled);
+    public RegularTicket(String departureLocation, String destinationLocation, String departureDate, int noOfTickets, Passenger passenger ) {
+        super(departureLocation, destinationLocation, departureDate, noOfTickets, passenger);
     }
-
+ 
     public void checkSpecialServicesAvailed(){
         if(isAvailed==false){
             System.out.println("No special services has been availed");
