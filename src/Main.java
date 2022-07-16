@@ -20,8 +20,8 @@ public class Main {
                 System.out.println("---------------------------------------------");
                 System.out.println("1) User registration");
                 System.out.println("2) Book ticket");
-                System.out.println("3) Check ticket availability");
-                System.out.println("4) Check ticket status");
+                System.out.println("3) Check ticket details");
+                System.out.println("4) Check ticket availability");
                 System.out.println("5) Ticket cancellation");
                 System.out.println("0) Exit");
                 System.out.println("Enter option to proceed further");
@@ -87,7 +87,7 @@ public class Main {
 
                                 RegularTicket regTkt = new RegularTicket(departureLocation, destinationLocation,
                                         departureDate, noOfTickets, userDetails.get(checkID));
-                                System.out.println(noOfTickets + "regular tickets booked successfully");
+                                System.out.println(noOfTickets + " regular tickets booked successfully");
                                 ticketDetails.put(checkID,regTkt);
                             }
                         }
@@ -99,10 +99,16 @@ public class Main {
                         if(!ticketDetails.containsKey(ticketCheckID))
                             System.out.println("No tickets booked from this userID");
                         else{
-                            System.out.println(ticketDetails.get(ticketCheckID).flight.checkSeatAvailability());
+                            System.out.println("Departure Location: "+ticketDetails.get(ticketCheckID).departureLocation);
+                            System.out.println("Destination Location: "+ticketDetails.get(ticketCheckID).destinationLocation);
+                            System.out.println("Number of tickets booked: "+ticketDetails.get(ticketCheckID).flight.ticketsCount);
+                            System.out.println("Departure Date: "+ ticketDetails.get(ticketCheckID).departureDate);
+                            ticketDetails.get(ticketCheckID).checkTicketStatus();
+                            
                         }
                         break;
                     case 4:
+                        System.out.println(ticketDetails.get(1).flight.checkSeatAvailability());
                         break;
                     case 5:
                         break;
